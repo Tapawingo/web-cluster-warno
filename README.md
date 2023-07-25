@@ -1,6 +1,13 @@
-# Nuxt 3 Minimal Starter
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Tapawingo/web-cluster-warno/main/public/favicon.ico" width="480">
+</p>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<p align="center">
+    <sup><strong>
+    Hosted on <a href="https://warno.cluster-community.com">warno.cluster-community.com</a></strong></sup>
+</p>
+
+This web page is intended to be used for rendering CMF3 Warning Orders outside of arma 3.
 
 ## Setup
 
