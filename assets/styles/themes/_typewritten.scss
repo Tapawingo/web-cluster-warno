@@ -1,0 +1,326 @@
+@import 'https://fxaeberhard.github.io/handdrawn.css/handdrawn.css';
+
+/* Background div */
+.background {
+    display: flex;
+    justify-content: center;
+}
+
+.foreground {
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    animation: lightOn 4s forwards;
+
+    .foreground-inner-1 {
+        transform: scale(1.01);
+        .light {
+            box-shadow: 400vh 0px 0px 400vw rgba(0,0,0,0.99);
+            border-radius: 40px;
+
+            .shadow {
+                transform: scale(1.001);
+                max-width: 900px;
+                width: 900px;
+                aspect-ratio: 1 / 1.41;
+                border-radius: 40px;
+                box-shadow: inset 4px 0 23px 23px rgba(0,0,0,0.9);
+            }
+        }
+    }
+}
+
+/* Fade in flashlight */
+@keyframes lightOn {
+    0% {background-color:rgb(0, 0, 0, 1);}
+    10% {background-color:rgba(0, 0, 0, 0.000);}
+   100% {background-color:rgba(0, 0, 0, 0.000);}
+}
+
+/* Paper */
+.warno-container.typewritten {
+    box-sizing: border-box;
+    font-family: veteranTypewriter;
+    max-width: 900px;
+    width: 900px;
+    padding: 4.8rem;
+    background-color: #fefbf7;
+    background-image: url(/assets/img/paper-texture.png);
+    background-size: 10%;
+    aspect-ratio: 1 / 1.41;
+    overflow-y: auto;
+    position: relative;
+    color: black;
+
+    /* --------------------------- Paper illusion ---------------------------- */
+    &, .warno-container::before, .warno-container::after {
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+        border: 1px solid #bbb;
+    }
+
+    &::before, .warno-container::after {
+        content: "";
+        position: absolute;
+        height: 95%;
+        width: 99%;
+        background-color: #eee;
+        background-image: url(/assets/img/paper-texture.png);
+        background-size: 10%;
+    }
+
+    &::before {
+        right: 15px;
+        top: 0;
+        transform: rotate(-1deg);
+        z-index: -1;
+    }
+
+    &::after {
+        top: 5px;
+        right: -5px;
+        transform: rotate(1deg);
+        z-index: -2;
+    }
+    /* ----------------------------------------------------------------------- */
+
+    /* Main Header */
+    .warno-header {
+        margin-top: 0px;
+        font-size: 2rem;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+    .warno-buttonrow {
+        .warno-next, .warno-previous {
+            position: relative;
+            opacity: 0;
+            cursor: default;
+            border: #6b6b6b solid 2px;
+            color: black;
+            background-color: transparent;
+            padding: 0.2rem;
+            font-family: veteranTypewriter;
+            font-size: 100%;
+    
+            &.show {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+    
+        .warno-next {
+            float: right;
+        }
+    }
+
+    .error-container {
+        h1 {
+            margin-top: 0px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-align: center;
+            color: brown;
+        }
+
+        p {
+            color: brown;
+        }
+    }
+
+    /* Individual sections of the warning order */
+    .warno-section {
+        position: relative;
+        display: none;
+
+        /* Unhide */
+        &.show {
+            display: block;
+        }
+
+        /* Sub Header */
+        h1 {
+            margin-top: 0px;
+            font-size: 160%;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        /* Content */
+        .warno-content {
+            overflow-y: auto;
+            font-size: 95%;
+            line-height: 180%;
+            padding-left: 40px;
+
+            h1 {
+                margin-top: 2.2rem;
+                text-decoration: underline;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+            
+            h2 {
+                margin-top: 1.2rem;
+                margin-bottom: 0;
+                text-decoration: underline;
+                list-style-type: upper-alpha;
+                display: list-item;
+                font-weight: 400;
+                font-size: inherit;
+            }
+            
+            h3 {
+                margin-top: 0.5rem;
+                text-decoration: underline;
+                font-size: inherit;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            /* --------------------------- Text indent ---------------------------- */
+            h1 ~ *:not(h1) {
+                margin-left: 1.2rem;
+            }
+            
+            h2 ~ *:not(h1, h2) {
+                margin-left: 2.4rem;
+            }
+            
+            h3 ~ *:not(h1, h2, h3) {
+                margin-left: 3.6rem;
+            }
+            /* ----------------------------------------------------------------------- */
+
+            ul {
+                
+                li {
+                    list-style-position: inside;
+                    list-style-type: circle;
+
+                    &::before {
+                        content: none;
+                    }
+                }
+            }
+            
+            ol {                
+                li {
+                    list-style-type: decimal;
+                    list-style-position: inside;
+                    margin-bottom: 5px;
+
+                    p {
+                        display: inline;
+                    }
+                }
+            }
+
+            strong {
+                font-weight: 400;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Phone handling */
+@media only screen and (max-width: 600px) {
+    .foreground {
+        display: none;
+    }
+
+    .warno-container.typewritten {
+        padding: 1rem;
+
+        .warno-buttonrow {
+            display: none;
+        }
+
+        .warno-section {
+            .warno-content {
+                overflow-y: auto;
+                font-size: 90%;
+                line-height: 180%;
+                padding-left: 1rem;
+    
+                h1 {
+                    margin-top: 2.2rem;
+                    text-decoration: underline;
+                }
+                
+                h2 {
+                    margin-top: 1.2rem;
+                    text-decoration: underline;
+                    list-style-type: upper-alpha;
+                    display: list-item;
+                }
+                
+                h3 {
+                    margin-top: 0.5rem;
+                    text-decoration: underline;
+                }
+    
+                /* --------------------------- Text indent ---------------------------- */
+                h1 ~ *:not(h1) {
+                    margin-left: 1.2rem;
+                }
+                
+                h2 ~ *:not(h1, h2) {
+                    margin-left: 2.4rem;
+                }
+                
+                h3 ~ *:not(h1, h2, h3) {
+                    margin-left: 3.6rem;
+                }
+                /* ----------------------------------------------------------------------- */
+    
+                ul {
+                    
+                    li {
+                        list-style-position: inside;
+                        list-style-type: circle;
+    
+                        &::before {
+                            content: none;
+                        }
+                    }
+                }
+                
+                ol {                
+                    li {
+                        list-style-type: decimal;
+                        list-style-position: inside;
+                        margin-bottom: 5px;
+    
+                        p {
+                            display: inline;
+                        }
+                    }
+                }
+    
+                strong {
+                    font-weight: 400;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+  }
+
+@font-face {
+    font-family: veteranTypewriter;
+    src: url(assets/fonts/veteran_typewriter.ttf);
+}
+
+@font-face {
+    font-family: damagePlan;
+    src: url(assets/fonts/damage_plan.ttf);
+}
