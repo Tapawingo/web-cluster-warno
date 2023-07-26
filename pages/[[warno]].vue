@@ -42,6 +42,8 @@
         data.value = [];
     }
 
+    /* @TODO: Handle swipes for mobile users */
+
     const indexHeader = ["Situation", "Mission", "Execution", "Administration & Logistics", "Command & Signal"];
 
     const pageIndex = ref(0);
