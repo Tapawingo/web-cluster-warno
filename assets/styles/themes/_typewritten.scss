@@ -18,17 +18,16 @@
     animation: lightOn 4s forwards;
 
     .foreground-inner-1 {
-        transform: scale(1.01);
         .light {
             box-shadow: 400vh 0px 0px 400vw rgba(0,0,0,0.99);
-            border-radius: 40px;
+            border-radius: 10px;
 
             .shadow {
                 transform: scale(1.001);
                 max-width: 900px;
                 width: 900px;
                 aspect-ratio: 1 / 1.41;
-                border-radius: 40px;
+                border-radius: 10px;
                 box-shadow: inset 4px 0 23px 23px rgba(0,0,0,0.9);
             }
         }
@@ -177,6 +176,7 @@
             
             h3 {
                 margin-top: 0.5rem;
+                margin-bottom: 0;
                 text-decoration: underline;
                 font-size: inherit;
             }
@@ -233,12 +233,19 @@
 
 /* Phone handling */
 @media only screen and (max-width: 600px) {
+    body {
+        padding: 0px;
+    }
+
     .foreground {
         display: none;
     }
 
     .warno-container.typewritten {
+        margin: 0px;
         padding: 1rem;
+        aspect-ratio: auto;
+
 
         .warno-buttonrow {
             display: none;
@@ -250,66 +257,6 @@
                 font-size: 90%;
                 line-height: 180%;
                 padding-left: 1rem;
-    
-                h1 {
-                    margin-top: 2.2rem;
-                    text-decoration: underline;
-                }
-                
-                h2 {
-                    margin-top: 1.2rem;
-                    text-decoration: underline;
-                    list-style-type: upper-alpha;
-                    display: list-item;
-                }
-                
-                h3 {
-                    margin-top: 0.5rem;
-                    text-decoration: underline;
-                }
-    
-                /* --------------------------- Text indent ---------------------------- */
-                h1 ~ *:not(h1) {
-                    margin-left: 1.2rem;
-                }
-                
-                h2 ~ *:not(h1, h2) {
-                    margin-left: 2.4rem;
-                }
-                
-                h3 ~ *:not(h1, h2, h3) {
-                    margin-left: 3.6rem;
-                }
-                /* ----------------------------------------------------------------------- */
-    
-                ul {
-                    
-                    li {
-                        list-style-position: inside;
-                        list-style-type: circle;
-    
-                        &::before {
-                            content: none;
-                        }
-                    }
-                }
-                
-                ol {                
-                    li {
-                        list-style-type: decimal;
-                        list-style-position: inside;
-                        margin-bottom: 5px;
-    
-                        p {
-                            display: inline;
-                        }
-                    }
-                }
-    
-                strong {
-                    font-weight: 400;
-                    text-decoration: underline;
-                }
             }
         }
     }
