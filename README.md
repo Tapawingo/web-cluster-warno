@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Tapawingo/web-cluster-warno/main/extras/logo/banner.png" width="480">
+    <img src="https://raw.githubusercontent.com/Tapawingo/web-cluster-warno/main/extras/logo/logo.png" width="480">
 </p>
 
 <p align="center">
